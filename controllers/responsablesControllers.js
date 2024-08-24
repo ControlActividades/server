@@ -176,7 +176,10 @@ class ResponsablesControllers {
                     service: 'gmail',
                     auth: {
                         user: 'control.actividades.2024@gmail.com',
-                        pass: 'fmbc obte oenw qkzt'
+                        pass: 'nxzw oini eywx rbum'
+                    },
+                    tls: {
+                        rejectUnauthorized: false
                     }
                 });
                 const mailOptions = {
@@ -236,7 +239,10 @@ class ResponsablesControllers {
                     service: 'gmail',
                     auth: {
                         user: 'control.actividades.2024@gmail.com',
-                        pass: 'kimu ybdy gega ckgq'
+                        pass: 'nxzw oini eywx rbum'
+                    },
+                    tls: {
+                        rejectUnauthorized: false
                     }
                 });
                 const mailOptions = {
@@ -248,7 +254,7 @@ class ResponsablesControllers {
 
             Por favor, haz clic en el siguiente enlace para verificar tu correo electrónico:
 
-            http://64.227.29.68:4200/verificar-correo/${token} 
+            http://localhost:4200/verificar-correo/${token} 
 
             Si no solicitaste esta verificación, por favor ignora este correo.
 

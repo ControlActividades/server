@@ -40,16 +40,9 @@ class ReservasControllers {
     }
     create(req, resp) {
         return __awaiter(this, void 0, void 0, function* () {
-            try {
-                console.log(req.body); // Log para ver qué datos se están recibiendo
-                const result = yield database_1.default.query('INSERT INTO reservas set ?', [req.body]);
-                console.log('Insert result:', result); // Log para ver el resultado de la query
-                resp.json({ message: 'Reserva guardada' });
-            }
-            catch (error) {
-                console.error('Error al guardar la reserva:', error);
-                resp.status(500).json({ message: 'Error al guardar la reserva', error });
-            }
+            console.log(req.body);
+            yield database_1.default.query('INSERT INTO reservas set ?', [req.body]);
+            resp.json({ message: 'Reserva guardada' });
         });
     }
     delete(req, resp) {
@@ -101,9 +94,9 @@ class ReservasControllers {
             const { horaInicio, horaFin, fecha } = req.body;
             try {
                 const result = yield database_1.default.query(`SELECT * FROM reservas WHERE fecha = ? 
-                AND ((horaInicio < ? AND horaFin > ?) 
-                OR (horaInicio < ? AND horaFin > ?)
-                OR (horaInicio >= ? AND horaFin <= ?))`, [fecha, horaFin, horaInicio, horaInicio, horaFin, horaInicio, horaFin]);
+            AND ((horaInicio < ? AND horaFin > ?) 
+            OR (horaInicio < ? AND horaFin > ?)
+            OR (horaInicio >= ? AND horaFin <= ?))`, [fecha, horaFin, horaInicio, horaInicio, horaFin, horaInicio, horaFin]);
                 let hasAcceptedReserva = false;
                 let hasNonAcceptedReserva = false;
                 for (const reserva of result) {
